@@ -197,7 +197,7 @@ Votre implémentation des listes chaînées devra fournir :
 <a name="recopie"></a>
 ### Recopie
 
-Votre liste manipule des cellules, dont elle se condière comme propriétaire. En
+Votre liste manipule des cellules, dont elle se considère comme propriétaire. En
 particulier, lors de sa destruction ou du retrait d'éléments, votre liste
 supprime toutes ses cellules avec elle.
 
