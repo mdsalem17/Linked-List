@@ -25,11 +25,11 @@ void Niveau::dessiner() {
   /* dessin des murs */
   Cellule* mur = murs.tete() ;
   while(mur) {
-    short int ml = ligne(mur->valeur) ;
-    short int mc =  colonne(mur->valeur) ;
+    short int ml = ligne(mur->getValue()) ;
+    short int mc =  colonne(mur->getValue()) ;
     mvaddch(ml, 2*mc, ' ') ;
     mvaddch(ml, 2*mc + 1, ' ') ;
-    mur = mur->suivante ;
+    mur = mur->next ;
   }
 
   /* couleur normale */

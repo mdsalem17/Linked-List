@@ -14,8 +14,8 @@ Serpent::Serpent(short int ligne, short int colonne) {
 
 void Serpent::avancer(const Niveau& niveau) {
   /* position de la tete */
-  int tl = ligne(m_segments.queue()->valeur) ;
-  int tc = colonne(m_segments.queue()->valeur) ;
+  int tl = ligne(m_segments.queue()->getValue()) ;
+  int tc = colonne(m_segments.queue()->getValue()) ;
 
   /* deplacement de la tete dans la bonne direction */
   switch(direction) {
@@ -66,11 +66,11 @@ void Serpent::dessiner() {
   /* itération sur les segments */
   Cellule* segment = m_segments.tete() ;
   while(segment) {
-    short int sl = ligne(segment->valeur) ;
-    short int sc = colonne(segment->valeur) ;
+    short int sl = ligne(segment->getValue()) ;
+    short int sc = colonne(segment->getValue()) ;
     mvaddch(sl, 2*sc, ' ') ;
     mvaddch(sl, 2*sc + 1, ' ') ;
-    segment = segment->suivante ;
+    segment = segment->next ;
   }
   /* couleur normale */
   attroff(COLOR_PAIR(1)) ;
@@ -81,16 +81,16 @@ void Serpent::rafraichir() {
   init_pair(1, COLOR_BLUE, COLOR_BLUE) ;
   attron(COLOR_PAIR(1)) ;
   /* dessin de la tete */
-  short int tl = ligne(m_segments.queue()->valeur) ;
-  short int tc = colonne(m_segments.queue()->valeur) ;
+  short int tl = ligne(m_segments.queue()->getValue()) ;
+  short int tc = colonne(m_segments.queue()->getValue()) ;
   mvaddch(tl, 2*tc, ' ') ;
   mvaddch(tl, 2*tc + 1, ' ') ;
   /* couleur normale */
   attroff(COLOR_PAIR(1)) ;
   if(m_etat == STABLE) {
     /* effacement de la queue */
-    short int ql = ligne(m_segments.tete()->valeur) ;
-    short int qc = colonne(m_segments.tete()->valeur) ;
+    short int ql = ligne(m_segments.tete()->getValue()) ;
+    short int qc = colonne(m_segments.tete()->getValue()) ;
     mvaddch(ql, 2*qc, ' ') ;
     mvaddch(ql, 2*qc + 1, ' ') ;
   }

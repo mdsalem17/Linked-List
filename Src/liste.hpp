@@ -45,11 +45,14 @@ class Liste {
 
     /* affichage */
     void afficher() const ;
+    void vider();
+    bool estVide() const ;
+
+    int getNbElements() const ;
 
   private :
-
-    /* votre code ici */
-
+    Cellule* first;
+    int nbElements;
 } ;
 
 #endif
